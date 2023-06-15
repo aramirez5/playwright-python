@@ -1,3 +1,5 @@
+import random
+
 #Ejemplo1
 # flag=True
 # count=0
@@ -61,12 +63,10 @@ bandera=True
 #         print("Select an option betweeen 1-3 \n\n")
 
 #Ejemplo4
-import random
-
 num=random.randint(1,20)
 bandera=True
 
-while bandera==True:
+while bandera is True:
     n=int(input("Enter a number between 1 and 20: "))
     if n>0 and n<=20:
         if n == num:

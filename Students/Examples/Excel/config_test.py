@@ -1,9 +1,5 @@
-import re
-import time
-import random
 import pytest
-from playwright.sync_api import Page, expect, Playwright, sync_playwright
-from functions import Global_Functions
+from playwright.sync_api import Playwright
 from config_test import *
 
 # Global variables
