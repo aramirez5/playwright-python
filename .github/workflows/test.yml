@@ -1,4 +1,4 @@
-name: Python CI with Flask
+name: Python CI
 
 on:
   push:
@@ -63,4 +63,4 @@ jobs:
       with:
         name: pytest report
         path: |
-          Students/Examples/Excel/report.html
+          Students/Examples/report.html
