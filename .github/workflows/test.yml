@@ -49,6 +49,10 @@ jobs:
       
     - run: echo "🖥️ The workflow is now ready to test your code on the runner."
     
+    - name: Download browsers
+      run: |
+        playwright install
+
     - name: Run test
       run: |
         pytest Students/Examples/codegen.py -s -v --template=html1/index.html --report=report.html
