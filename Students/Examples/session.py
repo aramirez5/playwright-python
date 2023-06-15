@@ -4,7 +4,7 @@ import random
 import pytest
 from playwright.sync_api import Page, expect, Playwright, sync_playwright
 from functions import Global_Functions
-from config_test import set_up_demo
+from config_test import set_up_demo, set_up_session_username, set_up_session_password
 
 # Global variables
 time_wait = 0.5
@@ -47,4 +47,26 @@ def test_session_four(set_up_demo) -> None:
     gf.Click("#react-burger-menu-btn", time_wait)
     gf.Click("#logout_sidebar_link", time_wait)
     
+    gf.Wait(time_wait)
+
+def test_username(set_up_session_username) -> None:
+    
+    page = set_up_session_username
+    gf = Global_Functions(page)
+
+    error_message = gf.Get_text("//h3[contains(@data-test,'error')]", time_wait)
+    expected_message = "Epic sadface: Username and password do not match any user in this service"
+    assert error_message in expected_message, "The error message is not correct"
+    
+    gf.Wait(time_wait)
+
+def test_password(set_up_session_password) -> None:
+    
+    page = set_up_session_password
+    gf = Global_Functions(page)
+
+    error_message = gf.Get_text("//h3[contains(@data-test,'error')]", time_wait)
+    expected_message = "Epic sadface: Username and password do not match any user in this service"
+    assert error_message in expected_message, "The error message is not correct"
+
     gf.Wait(time_wait)
