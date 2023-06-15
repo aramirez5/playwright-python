@@ -55,7 +55,7 @@ jobs:
 
     - name: Run test
       run: |
-        pytest Students/Examples/codegen.py -s -v --template=html1/index.html --report=report.html
+        pytest Students/Examples/codegen.py -s -v --template=html1/index.html --report=Students/Examples/Reports/report.html
 
     - name: Upload repositor
       uses: actions/upload-artifact@v3
@@ -63,4 +63,4 @@ jobs:
       with:
         name: pytest report
         path: |
-          Students/Examples/report.html
+          Students/Examples/Reports/report.html
