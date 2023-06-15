@@ -11,7 +11,7 @@ path = "Images/"
 def test_codegen(playwright: Playwright, url: str = "https://www.saucedemo.com/") -> None:
 
     # Config
-    browser = playwright.chromium.launch(headless=False, slow_mo=500)
+    browser = playwright.chromium.launch(headless=True, slow_mo=500)
     context = browser.new_context(
         viewport={"width": 1280, "height": 720}
     )
