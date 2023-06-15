@@ -4,8 +4,6 @@ from config_test import *
 
 # Global variables
 time_wait = 0.5
-path = "Images/"
-pdf = "C:/laragon/www/playwright-python/Students/Examples/Documents/sample.pdf"
 url = "https://testingqarvn.com.es/datos-personales/"
 
 @pytest.fixture(scope="function")

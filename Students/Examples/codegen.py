@@ -7,7 +7,6 @@ from functions import Global_Functions
 # Global variables
 time_wait = 0.5
 path = "Images/"
-pdf = "C:/laragon/www/playwright-python/Students/Examples/Documents/sample.pdf"
 
 def test_codegen(playwright: Playwright, url: str = "https://www.saucedemo.com/") -> None:
 
