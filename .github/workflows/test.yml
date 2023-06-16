@@ -32,7 +32,6 @@ jobs:
       id: setup-python
       with:
         python-version: 3.x
-        python-version-file: '.python-version'
 
     - name: Cache dependencies
       uses: actions/cache@v3

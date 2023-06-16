@@ -1,6 +1,6 @@
 import re
 import time
-from playwright.sync_api import Page, expect, Playwright, sync_playwright
+from playwright.sync_api import Page, expect
 
 
 def test_challenge_three(page: Page, url: str = "https://testingqarvn.com.es/prueba-de-campos-checkbox/"):
@@ -33,5 +33,7 @@ def test_challenge_three(page: Page, url: str = "https://testingqarvn.com.es/pru
     page.screenshot(path="Images/challenge_three2.png")
 
     # Check form
-    expect(page.locator("//p[contains(text(),'Gracias por tu encuesta.')]")).to_contain_text("Gracias")
+    expect(page.locator(
+        "//p[contains(text(),'Gracias por tu encuesta.')]")
+    ).to_contain_text("Gracias")
     page.screenshot(path="Images/challenge_three3.png")

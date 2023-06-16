@@ -1,14 +1,13 @@
-import re
-import time
-from playwright.sync_api import Page, expect, Playwright, sync_playwright
+from playwright.sync_api import Playwright
 from functions import Global_Functions
 
 #Global variables
 time_wait = 0.5
 path = "Images/"
+url = "https://testingqarvn.com.es/combobox/"
 
 #def test_challenge_two(page: Page, url: str = "https://testingqarvn.com.es/datos-personales/"):
-def test_selector(playwright: Playwright, url: str = "https://testingqarvn.com.es/combobox/") -> None:
+def test_selector(playwright: Playwright, url: str = url) -> None:
 
     #Config
     browser = playwright.chromium.launch(headless=False, slow_mo=500)
@@ -30,7 +29,11 @@ def test_selector(playwright: Playwright, url: str = "https://testingqarvn.com.e
     gf.Wait(time_wait)
 
     #Fill the form
-    gf.Text_img("//input[contains(@id,'wsf-1-field-45')]", "John", path+"selector2.png", time_wait)
+    gf.Text_img("//input[contains(@id,'wsf-1-field-45')]", 
+                "John", 
+                path+"selector2.png", 
+                time_wait
+    )
     gf.Text("//input[contains(@id,'wsf-1-field-46')]", "Doe", time_wait)
     gf.Text("//input[contains(@id,'wsf-1-field-47')]", "john.doe@gmail.com", time_wait)
     gf.Text("//input[contains(@id,'wsf-1-field-48')]", "666666666", time_wait)
@@ -47,4 +50,8 @@ def test_selector(playwright: Playwright, url: str = "https://testingqarvn.com.e
     gf.Check_url("https://testingqarvn.com.es/combobox/", time_wait)
 
     #Check message
-    gf.Check_text("//p[contains(text(),'Gracias por tu encuesta.')]", "Gracias", time_wait)
+    gf.Check_text(
+        "//p[contains(text(),'Gracias por tu encuesta.')]", 
+        "Gracias", 
+        time_wait
+    )

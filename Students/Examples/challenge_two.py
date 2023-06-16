@@ -1,10 +1,14 @@
 import re
 import time
-from playwright.sync_api import Page, expect, Playwright, sync_playwright
+from playwright.sync_api import expect, Playwright
 
+url = "https://testingqarvn.com.es/datos-personales/"
 
 #def test_challenge_two(page: Page, url: str = "https://testingqarvn.com.es/datos-personales/"):
-def test_challenge_two(playwright: Playwright, url: str = "https://testingqarvn.com.es/datos-personales/") -> None:
+def test_challenge_two(
+        playwright: Playwright, 
+        url: str = url
+    ) -> None:
 
     #Config
     browser = playwright.chromium.launch(headless=False, slow_mo=500)
@@ -36,7 +40,9 @@ def test_challenge_two(playwright: Playwright, url: str = "https://testingqarvn.
     page.screenshot(path="Images/challenge_two2.png")
 
     # Check form
-    expect(page.locator("//p[contains(text(),'Gracias por tu encuesta.')]")).to_contain_text("Gracias")
+    expect(page.locator(
+        "//p[contains(text(),'Gracias por tu encuesta.')]")
+    ).to_contain_text("Gracias")
     expect(page).to_have_url(re.compile(".*/datos-personales"))
     time.sleep(2)
     page.screenshot(path="Images/challenge_two3.png")

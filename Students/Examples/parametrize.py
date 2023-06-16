@@ -1,10 +1,6 @@
-import re
-import time
-import random
 import pytest
-from playwright.sync_api import Page, expect, Playwright, sync_playwright
 from functions import Global_Functions
-from config_test import set_up_demo, set_up_parametrized
+from config_test import set_up_parametrized
 
 # Global variables
 time_wait = 0.5
@@ -19,7 +15,7 @@ data2 = {
 @pytest.mark.parametrize("nom, ape",[("Rodrigo", "Villanueva"),("Juan", "Pérez"), ("Erika", "Paz")])
 def test_parametrized_one(set_up_parametrized, nom, ape) -> None:
     
-    page = set_up_parametrized
+    page = set_up_parametrized  # ruff: noqa
     gf = Global_Functions(page)
 
     gf.Check_title("Datos Personales | TestingQaRvn", time_wait)
@@ -31,7 +27,7 @@ def test_parametrized_one(set_up_parametrized, nom, ape) -> None:
 @pytest.mark.parametrize("nom, ape", data)
 def test_parametrized_two(set_up_parametrized, nom, ape) -> None:
     
-    page = set_up_parametrized
+    page = set_up_parametrized  # ruff: noqa
     gf = Global_Functions(page)
 
     gf.Check_title("Datos Personales | TestingQaRvn", time_wait)
@@ -43,7 +39,7 @@ def test_parametrized_two(set_up_parametrized, nom, ape) -> None:
 @pytest.mark.parametrize(**data2)
 def test_parametrized_two(set_up_parametrized, nom, ape) -> None:
     
-    page = set_up_parametrized
+    page = set_up_parametrized  # ruff: noqa
     gf = Global_Functions(page)
 
     gf.Check_title("Datos Personales | TestingQaRvn", time_wait)

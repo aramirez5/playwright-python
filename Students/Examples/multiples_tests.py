@@ -1,8 +1,5 @@
-import re
-import time
 import random
 import pytest
-from playwright.sync_api import Page, expect, Playwright, sync_playwright
 from functions import Global_Functions
 from config_test import set_up
 
@@ -29,7 +26,7 @@ def test_start(set_up) -> None:
 def test_fill_form(set_up) -> None:
 
     #Config
-    page = set_up
+    page = set_up # ruff: noqa
     gf = Global_Functions(page)
 
     #Fill the form

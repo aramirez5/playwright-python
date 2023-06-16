@@ -1,15 +1,14 @@
-import re
-import time
 import random
-from playwright.sync_api import Page, expect, Playwright, sync_playwright
+from playwright.sync_api import Playwright
 from functions import Global_Functions
 
 #Global variables
 time_wait = 0.5
 path = "Images/"
+url = "https://testingqarvn.com.es/combobox-dependiente/"
 
 #def test_challenge_two(page: Page, url: str = "https://testingqarvn.com.es/datos-personales/"):
-def test_selector_two(playwright: Playwright, url: str = "https://testingqarvn.com.es/combobox-dependiente/") -> None:
+def test_selector_two(playwright: Playwright, url: str = url) -> None:
 
     #Config
     browser = playwright.chromium.launch(headless=False, slow_mo=500)
@@ -56,4 +55,7 @@ def test_selector_two(playwright: Playwright, url: str = "https://testingqarvn.c
     gf.Check_url("https://testingqarvn.com.es/combobox-dependiente/", time_wait)
 
     #Check message
-    gf.Check_text("//p[contains(text(),'Gracias por tu encuesta.')]", "Gracias", time_wait)
+    gf.Check_text("//p[contains(text(),'Gracias por tu encuesta.')]", 
+                  "Gracias", 
+                  time_wait
+    )

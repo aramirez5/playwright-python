@@ -1,14 +1,11 @@
-import re
-import time
-import random
-from playwright.sync_api import Page, expect, Playwright, sync_playwright
-from functions import Global_Functions
+from playwright.sync_api import Playwright
 
 # Global variables
 time_wait = 0.5
 path = "Images/"
+url = "https://www.saucedemo.com/"
 
-def test_codegen(playwright: Playwright, url: str = "https://www.saucedemo.com/") -> None:
+def test_codegen(playwright: Playwright, url: str = url) -> None:
 
     # Config
     browser = playwright.chromium.launch(headless=True, slow_mo=500)

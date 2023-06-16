@@ -58,5 +58,7 @@ print(name11)
 name12 = "Demo de la \"aplicación\""
 name12 = name12.replace("aplicación","programación")
 print(name12)
-name13 = "\tEsto tiene un espacio al inicio tab\n\t\tEsto es otra línea\n\t\t\t\rEsta es la tercera línea, pero sin tab"
+name13 = "\tEsto tiene un espacio al inicio tab\n" \
+         "\t\tEsto es otra línea\n" \
+         "\t\t\t\rEsta es la tercera línea, pero sin tab"
 print(name13)

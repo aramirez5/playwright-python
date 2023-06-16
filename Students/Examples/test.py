@@ -4,11 +4,11 @@ from playwright.sync_api import Page, expect
 
 def test(page: Page, url: str = "https://playwright.dev/"):
     """
-    This function navigates to the Playwright intro page, clicks the "Get started" button, and checks
-    that the page title and URL are correct.
+    This function navigates to the Playwright intro page, clicks the 
+    "Get started" button, and checks that the page title and URL are correct.
 
-    :param page: The current page object that the function will interact with. It is likely an instance
-    of a Playwright Page class
+    :param page: The current page object that the function will interact with. 
+    It is likely an instance of a Playwright Page class
     :type page: Page
     :param url: The URL of the website to navigate to. In this case, it is set to
     "https://playwright.dev/", defaults to https://playwright.dev/

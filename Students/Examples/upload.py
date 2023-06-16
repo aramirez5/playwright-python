@@ -1,15 +1,14 @@
-import re
-import time
 import random
-from playwright.sync_api import Page, expect, Playwright, sync_playwright
+from playwright.sync_api import Playwright
 from functions import Global_Functions
 
 #Global variables
 time_wait = 0.5
 path = "Images/"
 pdf = "C:/laragon/www/playwright-python/Students/Examples/Documents/sample.pdf"
+url = "https://testingqarvn.com.es/upload-files/"
 
-def test_upload(playwright: Playwright, url: str = "https://testingqarvn.com.es/upload-files/") -> None:
+def test_upload(playwright: Playwright, url: str = url) -> None:
 
     #Config
     browser = playwright.chromium.launch(headless=False, slow_mo=500)
@@ -77,7 +76,10 @@ def test_upload(playwright: Playwright, url: str = "https://testingqarvn.com.es/
     gf.Check_url("https://testingqarvn.com.es/upload-files/", time_wait)
 
     #Check message
-    gf.Check_text("//p[contains(text(),'Gracias por tu encuesta.')]", "Gracias", time_wait)
+    gf.Check_text("//p[contains(text(),'Gracias por tu encuesta.')]", 
+                  "Gracias", 
+                  time_wait
+    )
 
     #Trace viewer stop
     #context.tracing.stop(path="trace.zip")

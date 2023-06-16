@@ -1,14 +1,13 @@
-import re
-import time
 import random
-from playwright.sync_api import Page, expect, Playwright, sync_playwright
+from playwright.sync_api import Playwright
 from functions import Global_Functions
 
 #Global variables
 time_wait = 0.5
 path = "Images/"
+url = "https://testingqarvn.com.es/calendarios/"
 
-def test_calendars(playwright: Playwright, url: str = "https://testingqarvn.com.es/calendarios/") -> None:
+def test_calendars(playwright: Playwright, url: str = url) -> None:
 
     #Config
     browser = playwright.chromium.launch(headless=False, slow_mo=500)
@@ -63,4 +62,8 @@ def test_calendars(playwright: Playwright, url: str = "https://testingqarvn.com.
     gf.Check_url("https://testingqarvn.com.es/calendarios/", time_wait)
 
     #Check message
-    gf.Check_text("//p[contains(text(),'Gracias por tu encuesta.')]", "Gracias", time_wait)
+    gf.Check_text(
+        "//p[contains(text(),'Gracias por tu encuesta.')]",
+          "Gracias", 
+          time_wait
+    )

@@ -29,7 +29,11 @@ def test_challenge_one(page: Page, url: str = "https://demoqa.com/"):
     # Check form
     expect(page.locator("#name")).to_have_text("Name:John Doe")
     expect(page.locator("#email")).to_have_text("Email:johndoe@gmail.com")
-    expect(page.locator("//p[@id='currentAddress']")).to_have_text("Current Address :Spain")
-    expect(page.locator("//p[@id='permanentAddress']")).to_have_text("Permananet Address :Italy")
+    expect(page.locator("//p[@id='currentAddress']")).to_have_text(
+        "Current Address :Spain"
+    )
+    expect(page.locator("//p[@id='permanentAddress']")).to_have_text(
+        "Permananet Address :Italy"
+    )
     expect(page).to_have_url(re.compile(".*/text-box"))
     page.screenshot(path="Images/step4.png")

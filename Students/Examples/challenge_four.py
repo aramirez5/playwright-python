@@ -15,13 +15,13 @@ def test_challenge_four(page: Page, url: str = "https://datatables.net/extension
         page.locator(f"(//td[@class='  select-checkbox'])[{i}]").click()
 
         if i == 10:
-            page.locator(f"//a[contains(@data-dt-idx,'2')]").click()
+            page.locator("//a[contains(@data-dt-idx,'2')]").click()
 
             for x in range(1,11):
                 page.locator(f"(//td[@class='  select-checkbox'])[{x}]").click()
 
                 if x == 10:
-                    page.locator(f"//a[contains(@data-dt-idx,'3')]").click()
+                    page.locator("//a[contains(@data-dt-idx,'3')]").click()
 
                     for y in range(1,11):
                         page.locator(f"(//td[@class='  select-checkbox'])[{y}]").click()

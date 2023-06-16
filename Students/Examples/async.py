@@ -1,5 +1,4 @@
 import asyncio
-from logging import handlers
 from playwright.async_api import async_playwright
 
 async def main():
