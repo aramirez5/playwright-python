@@ -44,6 +44,7 @@ jobs:
       run: |
         python -m venv mv_students
         . mv_students/bin/activate
+        python -m pip install --upgrade pip
         pip install -r Students/requirements.txt
 
     - name: Run linter
@@ -54,7 +55,7 @@ jobs:
       
     - name: Download browsers
       run: |
-        playwright install chromium
+        python -m playwright install chromium
 
     - run: echo "🖥️ The workflow is now ready to test your code on the runner."
 
