@@ -44,14 +44,13 @@ jobs:
       if: steps.cache-dependencies.outputs.cache-hit != 'true'
       run: |
         python -m venv mv_students
-        . mv_students/bin/activate
+        source mv_students/bin/activate
         python -m pip install --upgrade pip
         pip install -r Students/requirements.txt
         python -m playwright install chromium
 
     - name: Run linter
       run: |
-        . venv/bin/activate
         ruff .
       continue-on-error: true
 
@@ -59,7 +58,6 @@ jobs:
 
     - name: Run test
       run: |
-        . venv/bin/activate
         pytest Students/Examples/codegen.py -s -v --template=html1/index.html --report=Students/Examples/Reports/report.html
 
     - name: Upload repositor
