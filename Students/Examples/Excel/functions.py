@@ -1,6 +1,6 @@
 import re
 import time
-from playwright.sync_api import Page, expect, Playwright, sync_playwright
+from playwright.sync_api import expect
 
 class Global_Functions:
 

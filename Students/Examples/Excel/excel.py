@@ -1,10 +1,5 @@
-import re
-import time
-import random
-import pytest
 import openpyxl
 from functions import Global_Functions
-from playwright.sync_api import Page, expect, Playwright, sync_playwright
 from config_test import set_up_excel
 
 # Global variables
@@ -30,7 +25,7 @@ print(column_data("data", 3, 4))
 
 def test_excel(set_up_excel) -> None:
     
-    page = set_up_excel
+    page = set_up_excel # ruff: noqa
     gf = Global_Functions(page)
 
     gf.Check_title("Datos Personales | TestingQaRvn", time_wait)
@@ -51,6 +46,10 @@ def test_excel(set_up_excel) -> None:
         gf.Text("//textarea[@id='wsf-1-field-28']", address, time_wait)
         gf.Click("//button[@id='wsf-1-field-27']", time_wait)
         gf.Wait(time_wait)
-        gf.Check_text("//p[contains(text(),'Gracias por tu encuesta.')]", "Gracias", time_wait)
+        gf.Check_text(
+            "//p[contains(text(),'Gracias por tu encuesta.')]",
+            "Gracias",
+            time_wait
+        )
         page.goto("https://testingqarvn.com.es/datos-personales/")
         gf.Wait(time_wait)

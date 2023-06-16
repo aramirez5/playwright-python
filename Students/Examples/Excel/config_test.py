@@ -1,6 +1,5 @@
 import pytest
 from playwright.sync_api import Playwright
-from config_test import *
 
 # Global variables
 time_wait = 0.5
