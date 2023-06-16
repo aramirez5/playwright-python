@@ -54,7 +54,7 @@ jobs:
       
     - name: Download browsers
       run: |
-        python -m playwright install chromium
+        playwright install chromium
 
     - run: echo "🖥️ The workflow is now ready to test your code on the runner."
 
