@@ -59,6 +59,7 @@ jobs:
 
     - name: Run test
       run: |
+        source mv_students/bin/activate
         pytest Students/Examples/codegen.py -s -v --template=html1/index.html --report=Students/Examples/Reports/report.html
 
     - name: Upload repositor
