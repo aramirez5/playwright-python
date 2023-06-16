@@ -34,7 +34,8 @@ jobs:
         python-version: 3.x
         python-version-file: '.python-version'
 
-    - uses: actions/cache@v3
+    - name: Cache dependencies
+      uses: actions/cache@v3
       with:
         path: venv
         key: ${{ runner.os }}-venv-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/*requirements.txt') }}
@@ -46,17 +47,13 @@ jobs:
         . mv_students/bin/activate
         python -m pip install --upgrade pip
         pip install -r Students/requirements.txt
+        python -m playwright install chromium
 
     - name: Run linter
       run: |
         . venv/bin/activate
         ruff .
       continue-on-error: true
-      
-    - name: Download browsers
-      run: |
-        source venv/bin/activate
-        python -m playwright install chromium
 
     - run: echo "🖥️ The workflow is now ready to test your code on the runner."
 
