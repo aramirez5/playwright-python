@@ -54,7 +54,6 @@ jobs:
       
     - name: Download browsers
       run: |
-        . venv/bin/activate
         python -m playwright install chromium
 
     - run: echo "🖥️ The workflow is now ready to test your code on the runner."
