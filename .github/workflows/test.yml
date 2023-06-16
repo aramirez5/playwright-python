@@ -38,7 +38,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: venv
-        key: ${{ runner.os }}-venv-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/*requirements.txt') }}
+        key: ${{ runner.os }}-venv-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('Students/requirements.txt') }}
    
     - name: Install dependencies
       if: steps.cache-dependencies.outputs.cache-hit != 'true'
