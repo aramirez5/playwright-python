@@ -26,7 +26,7 @@ python -m venv mv_students
 source mv_students/bin/activate
 ```
 
-Then you need to have Python 3.7 or above installed on your system. You can install Playwright-Python using pip. The package is include the requirements file:
+Then you need to have Python 3.7 or above installed on your system. You can install Playwright-Python using pip. The package is included in the requirements file:
 
 ```sh
 python -m pip install --upgrade pip
